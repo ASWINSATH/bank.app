@@ -10,6 +10,8 @@
 
                                  3. to generate component - ng g component-name
 
+                                 4. to generate service - ng g s service-name
+
 
                                             Basic Building blocks
 
@@ -24,16 +26,84 @@
 
                                       3.1 One way Binding - data sharing only in one direction
                                       
-                                       3.1.1 Componenet (ts) to view (html)
+                                          3.1.1 Componenet (ts) to view (html)
 
-                                        3.1.1.1 String Interpulation -{{expression}}
-                                        
-                                        3.1.1.2 property Binding -[atribute name]='property name'
+                                          3.1.1.1 String Interpulation -{{expression}}
 
-                                       3.1.2 View (html) component (ts)
+                                          3.1.1.2 property Binding -[atribute name]='property name'
 
-                                        3.1.2.1 Event Binding (event name)="function-name()"
+                                      3.1.2 View (html) component (ts)
 
-                                        3.1.2.2 Event Binding using $event (event name)="function-name($event)"
+                                          3.1.2.1 Event Binding (event name)="function-name()"
 
-                                        3.1.2.3 Event Binding using template referencing variable - #variable-name
+                                          3.1.2.2 Event Binding using $event (event name)="function-name($event)"
+
+                                          3.1.2.3 Event Binding using template referencing variable - #variable-name
+
+                                      3.2 two way Binding - data sharing only in both direction
+
+                                         3.2.1 ngModle - import formsModule in AppModule
+                                         -[(ngModle)]="property-name" , property-name should defined in ts file
+
+                                  4. Angular routimg - to set path for component in appRoutingModule 
+                                      - {path:value,component:class-name}
+                                      -  use router-outlet selector inside the root component
+
+                                  5. Dependency Injection - to share data between dependent classes
+
+                                  6. Angular services - to hold redundent       
+                                 
+                                  7. ngSubmit
+
+                                  8. Angular Directives - To manupulate DOM
+
+                                     8.1 Component Directives
+
+                                     8.2 Structural Directives
+
+                                      8.2.1 - *ngFor
+                                      8.2.2 - *ngIf
+
+                                     8.3 Atribute Directives
+
+                                     
+                                  9. Angular Forms 
+
+                                     9.1 Template Driven Forms - first design html
+
+                                     9.2 Model Driven Forms - first design in ts file
+
+                                       9.2.1 Reactive forms - form group , form array , form control
+                                               - Add validations
+                                               - Import ReactiveformsModule
+
+
+                                  10. Local Storage
+
+                                     10.1 setItem
+
+                                     10.2 getItem
+
+                                     10.3 removeItem
+
+                                  11. Parent Child Communication
+
+                                     11.1. Parent to child - @Input
+
+                                  12. Angular Pipe
+
+                                  13. Front end - back end
+
+                                     13.1 Import HTTPClientModule
+
+                                     13.2 Inject HttpClient 
+
+                                     13.3 Using HttpClient make Api calls
+
+                                  14. Asynchronus call - RxJs
+
+                                     14.1 Observable
+
+                                      14.1.1 resolved - subscribe()
+                                      14.1.2 reject - catch()
+                                    

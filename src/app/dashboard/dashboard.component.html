@@ -1,0 +1,136 @@
+<nav>
+    <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
+    <span class="quote text-light">Giving you freedom...</span>
+    <button style="float:right;margin-right:20px" class="btn btn-warning" (click)="logout()">Log Out</button>
+</nav>
+<h1 style="color:white ;">Welcome {{user}} !!!
+<button (click)="deleteParent()" style="float:right;margin-right:20px;" class="btn btn-danger">Delete</button>
+
+
+</h1>
+<h4 style="color:white ;">System and Time :{{sDetails | date : 'short'}} </h4>
+<a routerLink="/transaction">View Transaction History</a>
+
+<!-- child - delete confirm -->
+<app-delete-confirm (onCancel)="onCancel()" [item]="acno"></app-delete-confirm>
+
+
+
+<div [ngClass]="acno?'style':'' " class="container col-md-12 mt-0">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Deposit form</h3>
+
+            </div>
+            <div class="card-body">
+                <form  [formGroup]="depositForm"  (ngSubmit)="deposit()">
+
+                    <!-- acno -->
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input formControlName="acno" name="acno" type="text" class="form-control" placeholder="account"
+                            id="login_accno" required>
+
+                    </div>
+                    <div *ngIf="this.depositForm.get('acno')?.touched&&this.depositForm.get('acno')?.errors"
+                        style="color: red;">Invalid Account Number</div>
+
+                    <!-- password -->
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input formControlName="pswd" name="pswd" type="password" class="form-control"
+                            placeholder="password" id="login_password" required>
+                    </div>
+                    <div *ngIf="this.depositForm.get('pswd')?.touched&&this.depositForm.get('pswd')?.errors"
+                    style="color: red;">Invalid Password</div>
+
+
+                    <!-- amount -->
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input formControlName="amount" name="amount" type="text" class="form-control" placeholder="amount"
+                            id="login_amount" required>
+
+                    </div>
+                    <div *ngIf="this.depositForm.get('amount')?.touched&&this.depositForm.get('amount')?.errors"
+                    style="color: red;">Invalid amount</div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="Deposit" class="btn float-right login_btn " style="width:50%">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- withdraw -->
+<div [ngClass]="acno?'style':'' " class="container col-md-12 mt-0">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">withdraw form</h3>
+
+            </div>
+            <div class="card-body">
+                <form  [formGroup]="withdrawForm"  (ngSubmit)="withdraw()">
+
+                    <!-- acno -->
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input formControlName="acno" name="acno" type="text" class="form-control" placeholder="account"
+                            id="login_accno" required>
+
+                    </div>
+                    <div *ngIf="this.withdrawForm.get('acno')?.touched&&this.withdrawForm.get('acno')?.errors"
+                        style="color: red;">Invalid Account Number</div>
+
+                    <!-- password -->
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input formControlName="pswd" name="pswd" type="password" class="form-control"
+                            placeholder="password" id="login_password" required>
+                    </div>
+                    <div *ngIf="this.withdrawForm.get('pswd')?.touched&&this.withdrawForm.get('pswd')?.errors"
+                    style="color: red;">Invalid Password</div>
+
+
+                    <!-- amount -->
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input formControlName="amount" name="amount" type="text" class="form-control" placeholder="amount"
+                            id="login_amount" required>
+
+                    </div>
+                    <div *ngIf="this.withdrawForm.get('amount')?.touched&&this.withdrawForm.get('amount')?.errors"
+                    style="color: red;">Invalid amount</div>
+
+
+                    <div class="form-group">
+                        <input type="submit" value="withdraw" class="btn float-right login_btn " style="width:50%">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
